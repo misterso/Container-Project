@@ -1,0 +1,21 @@
+version '3.8'
+
+services
+web:
+ build:
+   context: .
+   dockerfile: web.Dockerfile
+ports:
+  -"80:80"
+
+  db:
+   build:
+    context: .
+    dockerfile: db.Dockerfile
+  ports:
+    - "5432:5432"
+
+    networks:
+     deafult:
+      driver: bridge
+      
